@@ -3,7 +3,7 @@
 ### 프로그램 설치
 * C:\ajava 폴더 생성(본인의 상황에 맞게 적절한 폴더 생성. 이후 경로는 해당 폴더 기준)
 * 본인의 OS에 맞는 버전 다운로드 후 설치
-1. JDK 설치 [Download Pages](https://jdk.java.net/archive/)(마우스 오른쪽 버튼 > 새 탭에서 링크 열기)
+1. JDK 설치 [Download Pages](https://jdk.java.net/archive/)(마우스 오른쪽 버튼 > 새 탭에서 링크 열기 > 15.0.2)
     * C:\ajava 밑에 압축 해제하면 자동으로 c:\ajava\jdk-15.0.2 폴더가 생김
     * 환경변수 등록
       ```
@@ -29,7 +29,7 @@
       - 최초 실행 시 Select a directory as workspace 선택 항목에서 C:\ajava\java-workspace 입력, Use this as the default and do not ask again 선택박스 선택
       - 이클립스 실행 후 환경 설정
         - Window > Preferences > General > Appearance > Colors and Fonts > Basic > Text Font 선택 후 Edit로 원하는 글꼴 및 크기 선택
-        - Window > Preferences > General > Content Types > Text > Java Class File 선택 후 Default encoding에 UTF-8 입력 후 Update 선택
+        - Window > Preferences > General > Content Types > Java Class File 선택 후 Default encoding에 UTF-8 입력 후 Update 선택
         - Window > Preferences > General > Content Types > Text 선택 후 Default encoding에 UTF-8 입력 후 Update 선택        
 
 3. Android Studio 설치 [Download Pages](https://developer.android.com/studio)(마우스 오른쪽 버튼 > 새 탭에서 링크 열기)
