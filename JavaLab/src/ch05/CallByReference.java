@@ -10,9 +10,9 @@ public class CallByReference {
 		int n1 = 80;
 		MyObject n2 = new MyObject(80);
 		
-		System.out.println("n1: " + n1 + ", n2: " + n2);
+		System.out.println("n1: " + n1 + ", n2: " + n2.value);
 		something(n1, n2);
-		System.out.println("n1: " + n1 + ", n2: " + n2);
+		System.out.println("n1: " + n1 + ", n2: " + n2.value);
 	}
 }
 
