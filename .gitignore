@@ -29,5 +29,16 @@ hs_err_pid*
 .project
 
 # android
-android-workspace/
-!app/src/main/
+# android-workspace/
+# !app/src/main/
+android-workspace/.gradle
+android-workspace/.idea
+android-workspace/gradle
+android-workspace/gradlew
+android-workspace/**/*.gradle
+android-workspace/**/*.gitignore
+android-workspace/*.properties
+android-workspace/*.bat
+android-workspace/**/*.pro
+android-workspace/**/androidTest
+android-workspace/**/test
