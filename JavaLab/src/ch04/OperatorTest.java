@@ -28,12 +28,38 @@ public class OperatorTest {
 		int bb = (int)b + 100;
 		System.out.println(bb);
 		
-		byte bbb = (byte)bb;	// 紐낆떆�쟻 �삎蹂��솚
+		byte bbb = (byte)bb;	// 형변환 연산자(명시적 형변환, 큰 데이터를 작은 크기로 변경)
 		System.out.println(bbb);
 		
-		int bbbb = b;	// �븫�떆�쟻(臾듭떆�졊) �삎蹂��솚
+		int bbbb = b;	// 자동 형변환
 		System.out.println(bbbb);		
 		
 	}
 
 }
+
+//class System{
+//	public static PrintStream out;
+//}
+//
+//class PrintStream{
+//	void println(int msg) {
+//		// 표준출력장치에 msg를 출력하고 줄바꿈 기호 추가.		
+//	}
+//	void println(long msg) {
+//		// 표준출력장치에 msg를 출력하고 줄바꿈 기호 추가.		
+//	}
+//	void println(double msg) {
+//		// 표준출력장치에 msg를 출력하고 줄바꿈 기호 추가.		
+//	}
+//	void println(boolean msg) {
+//		// 표준출력장치에 msg를 출력하고 줄바꿈 기호 추가.		
+//	}
+//	void println(String msg) {
+//		// 표준출력장치에 msg를 출력하고 줄바꿈 기호 추가.		
+//	}
+//}
+
+
+
+
