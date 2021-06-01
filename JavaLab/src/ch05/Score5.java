@@ -49,4 +49,10 @@ public class Score5 {
 		double result = sum() / 3.0;
 		return Math.round(result);
 	}
+	
+	public String toString() {
+		return "Score5 [kor=" + kor + ", eng=" + eng + ", math=" + math + "]";
+	}
+	
+	
 }
