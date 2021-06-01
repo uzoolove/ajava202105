@@ -4,10 +4,13 @@ public class Test {
 
 	public static void main(String[] args) {
 //		Parent p = new Parent("부모");
-//		Parent p = new Son("아들");
-		Parent p = new Daughter("딸");
+		Gamer p = new Son("아들");
+//		Parent p = new Daughter("딸");
+//		Gamer p = new SonFriend();
 		
-		dailyPlan(p);
+//		dailyPlan(p);
+		
+		playGame(p);
 	}
 	
 	static void dailyPlan(Parent p) {
@@ -26,7 +29,13 @@ public class Test {
 			s.game();
 		}		
 		
+		p.study();
+		
 		p.sleep();
+	}
+	
+	static void playGame(Gamer g) {
+		g.game();
 	}
 	
 //	static void dailyPlan(Son p) {

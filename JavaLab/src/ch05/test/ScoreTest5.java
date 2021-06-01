@@ -10,8 +10,8 @@ public class ScoreTest5 {
 		Score5 lee = new Score5(90, 80, 99);
 		System.out.println("lee 평균: " + lee.avg());
 		
-//		System.out.println(kim);
-		System.out.println(kim.toString());
+		System.out.println(kim);
+//		System.out.println(kim.toString());
 	}
 }
 

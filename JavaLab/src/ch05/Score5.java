@@ -1,6 +1,6 @@
 package ch05;
 
-public class Score5 {
+public class Score5 extends Object{
 	private int kor;
 	private int eng;
 	private int math;

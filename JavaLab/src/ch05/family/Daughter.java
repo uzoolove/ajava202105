@@ -14,4 +14,8 @@ public class Daughter extends Parent{
 	private void makeup() {
 		System.out.println(name + ": 화장한다.");
 	}
+	
+	public void study() {
+		System.out.println(name + ": 과외를 받는다.");
+	}
 }
