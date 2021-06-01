@@ -28,10 +28,10 @@ public class OperatorTest {
 		int bb = (int)b + 100;
 		System.out.println(bb);
 		
-		byte bbb = (byte)bb;	// 명시적 형변환
+		byte bbb = (byte)bb;	// 紐낆떆�쟻 �삎蹂��솚
 		System.out.println(bbb);
 		
-		int bbbb = b;	// 암시적(묵시젹) 형변환
+		int bbbb = b;	// �븫�떆�쟻(臾듭떆�졊) �삎蹂��솚
 		System.out.println(bbbb);		
 		
 	}
