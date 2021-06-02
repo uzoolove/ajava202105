@@ -47,14 +47,23 @@ public class ArrayTest {
 		
 		// 새로운 Score 객체 추가
 		///////////////////////
-		Score6[] tmp = new Score6[(int)(scores.length*1.5)];
-		for(int i=0; i<scores.length; i++) {
-			tmp[i] = scores[i];
-		}
-		scores = tmp;
+//		Score6[] tmp = new Score6[(int)(scores.length*1.5)];
+//		for(int i=0; i<scores.length; i++) {
+//			tmp[i] = scores[i];
+//		}
+//		scores = tmp;
 		//////////////////////
 		
-		scores[3] = new Score6(45, 77,90);
+		try {
+			scores[3] = new Score6(45, 77,90);
+		}catch(ArrayIndexOutOfBoundsException e) {
+			Score6[] tmp = new Score6[(int)(scores.length*1.5)];
+			for(int i=0; i<scores.length; i++) {
+				tmp[i] = scores[i];
+			}
+			scores = tmp;
+		}
+		
 		System.out.println(Arrays.toString(scores));
 	}
 
