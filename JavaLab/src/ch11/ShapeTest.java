@@ -2,13 +2,16 @@ package ch11;
 
 public class ShapeTest {
 	public static void main(String[] args) {
-		Shape s1 = new Circle(5);
-		s1.draw();
-		s1.area();
-		
+		Shape s1 = new Circle(5); // 3. 다형성 조건(up casting)
 		Shape s2 = new Rectangle(10, 20);
-		s2.draw();
-		s2.area();
+		
+		printArea(s1);
+		printArea(s2);
+	}
+	
+	static void printArea(Shape s) {
+		s.draw();	// 다형성
+		s.area();	// 다형성
 	}
 }
 
@@ -22,19 +25,19 @@ abstract class Shape{
 	abstract void area();
 }
 
-class Circle extends Shape{
+class Circle extends Shape{	// 1. 다형성 조건(상속)
 	private int r;
 	public Circle(int i) {
 		this.r = i;
 	}
 
-	void draw() {
+	void draw() { // 2. 다형성 조건(오버라이딩)
 		super.draw();
 		System.out.println("원을 그린다.");
 	}
 
 	@Override
-	void area() {
+	void area() { // 2. 다형성 조건(오버라이딩)
 		System.out.println("원의 넓이는 " + Math.PI*r*r + "입니다.");
 	}
 }
