@@ -14,8 +14,8 @@ public class ChatClient {
 
 	// 객체 생성 후 호출할 메소드
 	private void onCreate() {
-		final String SERVER = "localhost:1234";
-//		final String SERVER = "chat.awsins.shop:1234";
+//		final String SERVER = "localhost:1234";
+		final String SERVER = "chat.awsins.shop:1234";
 		final String NICKNAME = "김철수";
 		connect(SERVER, NICKNAME);
 	}
