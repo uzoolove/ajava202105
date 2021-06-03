@@ -28,12 +28,26 @@ public class EchoClient {
 		
 		try{
 			// 소켓 생성(서버 접속 요청)			
+			s = new Socket(host, port);
+			System.out.println("서버에 접속 완료.");
 			
 			// 소켓에서 입출력 스트림 생성
+			in = s.getInputStream();
+			out = s.getOutputStream();
 			
 			// 키보드에서 입력한 문자를 꺼내기 위한 입력 스트림 생성
+			key = System.in;
 			
 			// 키보드에서 입력한 데이터를 출력 스트림으로 전송
+			int readData = 0;
+			while((readData = key.read()) != -1) {
+				out.write(readData);
+				
+				// 서버로부터 받은 데이터 출력
+				int recvData = 0;
+				recvData = in.read();
+				System.out.write(recvData);
+			}
 			
 		}catch(Exception e){
 			e.printStackTrace();
