@@ -12,6 +12,10 @@ public class EchoServerThread extends Thread{
 	private BufferedReader in;
 	private PrintWriter out;
 	
+	public EchoServerThread(Socket s) {
+		this.s = s;
+	}
+	
 	public void run(){
 		try{
 			// 소켓에서 입출력 스트림 생성

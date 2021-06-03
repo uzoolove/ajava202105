@@ -23,7 +23,7 @@ public class EchoServer {
 				s = ss.accept();
 				System.out.println("클라이언트 접속. " + s.getInetAddress().getHostAddress());
 				
-				EchoServerThread t = new EchoServerThread();
+				EchoServerThread t = new EchoServerThread(s);
 				t.start();
 			}
 
