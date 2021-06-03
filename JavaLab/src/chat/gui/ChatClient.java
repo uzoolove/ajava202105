@@ -1,6 +1,8 @@
 package chat.gui;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -38,7 +40,7 @@ public class ChatClient {
 //		final String SERVER = "localhost:1234";
 		final String SERVER = "chat.awsins.shop:1234";
 		final String NICKNAME = "김철수";
-//		connect(SERVER, NICKNAME);
+		connect(SERVER, NICKNAME);
 	}
 	
 	// 화면 구성
@@ -63,12 +65,53 @@ public class ChatClient {
 		frame.setSize(400, 300);
 		frame.setLocation(600, 300);
 		frame.setVisible(true);
+		msgInput.requestFocus();
 	}
 	
 	// 이벤트 등록
 	private void setEvent() {
 		// 닫기 버튼 클릭
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		// 전송 버튼 클릭
+//		class MouseEventListner implements MouseListener{
+//			public void mouseClicked(MouseEvent e) {
+//				System.out.println("클릭");
+//			}
+//			public void mousePressed(MouseEvent e) {
+//				System.out.println("누름");
+//			}
+//			public void mouseReleased(MouseEvent e) {
+//				System.out.println("뗌");
+//			}
+//			public void mouseEntered(MouseEvent e) {
+//				System.out.println("진입");
+//			}
+//			public void mouseExited(MouseEvent e) {
+//				System.out.println("나감");
+//			}
+//		}
+//		var myListener = new MouseEventListner();
+//		sendBtn.addMouseListener(myListener);
+		
+		sendBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String msg = msgInput.getText();
+				sendMsg(msg);
+				msgInput.setText("");
+				msgInput.requestFocus();
+			}
+		});
+		
+		msgInput.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String msg = msgInput.getText();
+				sendMsg(msg);
+				msgInput.setText("");
+				msgInput.requestFocus();
+			}
+		});
+		
 	}
 
 	// 서버에 메세지 전송
@@ -94,25 +137,12 @@ public class ChatClient {
 			
 			// 로그인 요청
 			sendMsg("login " + nickname);
-			
-			new Thread() {
-				public void run() {
-					// 키보드에서 입력한 데이터를 출력 스트림으로 전송
-					String readData = "";
-					try {
-						while((readData = key.readLine()) != null) {
-							sendMsg(readData);
-						}
-					}catch(Exception e) {
-						e.printStackTrace();
-					}					
-				}
-			}.start();
 				
 			// 서버로부터 받은 데이터 출력
 			String recvData = "";
 			while((recvData = in.readLine()) != null) {
-				System.out.println(recvData);
+				msgOut.append(recvData + "\n");
+				msgOut.setCaretPosition(msgOut.getDocument().getLength());
 			}
 			
 		}catch(Exception e){
