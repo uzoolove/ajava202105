@@ -1,18 +1,25 @@
 package ch13;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class FileCopyPerformance {
 	
 	public static void main(String[] args) {
-    String org = "C:\\androidjava\\jdk1.8\\src.zip";
-    String dest = "C:\\androidjava\\jdk1.8\\javasrc.zip";
-    long start = System.currentTimeMillis();
+	    String org = "C:\\ajava\\jdk-15.0.2\\lib\\src.zip";
+	    String dest = "C:\\ajava\\jdk-15.0.2\\lib\\javasrc.zip";
+	    
+	    long start = System.currentTimeMillis();
 		
-		copyFile(org, dest);
-//		copyFileUseBuffer(org, dest);
+//		copyFile(org, dest);
+		copyFileUseBuffer(org, dest);
 //		copyFileCustomBuffer(org, dest);
 	
 		long finish = System.currentTimeMillis();
+		
 		System.out.println("소요시간: " + (finish-start) + "ms");
 	}
 
@@ -22,7 +29,20 @@ public class FileCopyPerformance {
 	 * @param dest 복사 파일명
 	 */
 	private static void copyFile(String org, String dest) {
-		
+		int readData = 0;
+		FileInputStream fis = null;
+		FileOutputStream fos = null;
+		try {
+			fis = new FileInputStream(org);
+			fos = new FileOutputStream(dest);
+			while((readData = fis.read()) != -1) {
+				fos.write(readData);
+			}
+			fis.close();
+			fos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -31,7 +51,26 @@ public class FileCopyPerformance {
 	 * @param dest 복사 파일명
 	 */
 	private static void copyFileUseBuffer(String org, String dest) {
-		
+		int readData = 0;
+		FileInputStream fis = null;
+		FileOutputStream fos = null;
+		BufferedInputStream bis = null;
+		BufferedOutputStream bos = null;
+		try {
+			fis = new FileInputStream(org);
+			fos = new FileOutputStream(dest);
+			bis = new BufferedInputStream(fis);
+			bos = new BufferedOutputStream(fos);
+			while((readData = bis.read()) != -1) {
+				bos.write(readData);
+			}
+			bis.close();
+			bos.close();
+			fis.close();
+			fos.close();			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -41,7 +80,20 @@ public class FileCopyPerformance {
 	 * @param dest 복사 파일명
 	 */
 	private static void copyFileCustomBuffer(String org, String dest) {
-		
+		int readData = 0;
+		FileInputStream fis = null;
+		FileOutputStream fos = null;
+		try {
+			fis = new FileInputStream(org);
+			fos = new FileOutputStream(dest);
+			while((readData = fis.read()) != -1) {
+				fos.write(readData);
+			}
+			fis.close();
+			fos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
 
