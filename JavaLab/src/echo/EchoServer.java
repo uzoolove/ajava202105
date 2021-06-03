@@ -26,8 +26,7 @@ public class EchoServer {
 				EchoServerThread t = new EchoServerThread();
 				t.start();
 			}
-		}catch(SocketException e) {
-			System.out.println(s.getInetAddress().getHostAddress() + " 접속 종료.");
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}
