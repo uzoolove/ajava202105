@@ -26,6 +26,7 @@ public class EchoServerThread extends Thread{
 			String readData = "";
 			while((readData = in.readLine()) != null) {
 				out.println(readData);
+				System.out.println("[" + readData + "]");
 //				out.flush();
 			}
 		}catch(SocketException e) {
