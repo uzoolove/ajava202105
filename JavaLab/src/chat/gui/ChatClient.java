@@ -20,7 +20,6 @@ public class ChatClient {
 	private Socket s;
 	private BufferedReader in;		// 서버로부터 읽는다.
 	private PrintWriter out;	// 서버로 보낸다.
-	private BufferedReader key;	// 키보드로부터 읽는다.
 	
 	// 윈도우창
 	private JFrame frame;
@@ -131,10 +130,7 @@ public class ChatClient {
 			// 소켓에서 입출력 스트림 생성
 			in = new BufferedReader(new InputStreamReader(s.getInputStream(), "UTF-8"));
 			out = new PrintWriter(new OutputStreamWriter(s.getOutputStream(), "UTF-8"), true);	// auto flush
-			
-			// 키보드에서 입력한 문자를 꺼내기 위한 입력 스트림 생성
-			key = new BufferedReader(new InputStreamReader(System.in));
-			
+
 			// 로그인 요청
 			sendMsg("login " + nickname);
 				
