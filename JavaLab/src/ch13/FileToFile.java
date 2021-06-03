@@ -1,5 +1,6 @@
 package ch13;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -11,12 +12,15 @@ import java.io.IOException;
 public class FileToFile {
 	public static void main(String[] args) {
 		int readData = 0;
+		FileInputStream fis = null;
 		FileOutputStream fos = null;
 		try {
-			fos = new FileOutputStream("output.txt");
-			while((readData = System.in.read()) != -1) {
+			fis = new FileInputStream("output.txt");
+			fos = new FileOutputStream("output2.txt");
+			while((readData = fis.read()) != -1) {
 				fos.write(readData);
 			}
+			fis.close();
 			fos.close();
 		} catch (IOException e) {
 			e.printStackTrace();
