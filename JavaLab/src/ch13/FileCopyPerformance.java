@@ -14,9 +14,9 @@ public class FileCopyPerformance {
 	    
 	    long start = System.currentTimeMillis();
 		
-//		copyFile(org, dest);
-		copyFileUseBuffer(org, dest);
-//		copyFileCustomBuffer(org, dest);
+//		copyFile(org, dest);	// 508,486
+//		copyFileUseBuffer(org, dest);	// 2,000
+		copyFileCustomBuffer(org, dest);	// 200
 	
 		long finish = System.currentTimeMillis();
 		
@@ -52,22 +52,16 @@ public class FileCopyPerformance {
 	 */
 	private static void copyFileUseBuffer(String org, String dest) {
 		int readData = 0;
-		FileInputStream fis = null;
-		FileOutputStream fos = null;
 		BufferedInputStream bis = null;
 		BufferedOutputStream bos = null;
 		try {
-			fis = new FileInputStream(org);
-			fos = new FileOutputStream(dest);
-			bis = new BufferedInputStream(fis);
-			bos = new BufferedOutputStream(fos);
+			bis = new BufferedInputStream(new FileInputStream(org));	// 8KB
+			bos = new BufferedOutputStream(new FileOutputStream(dest));
 			while((readData = bis.read()) != -1) {
 				bos.write(readData);
 			}
 			bis.close();
-			bos.close();
-			fis.close();
-			fos.close();			
+			bos.close();	
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -80,14 +74,15 @@ public class FileCopyPerformance {
 	 * @param dest 복사 파일명
 	 */
 	private static void copyFileCustomBuffer(String org, String dest) {
-		int readData = 0;
+		int readSize = 0;
 		FileInputStream fis = null;
 		FileOutputStream fos = null;
 		try {
 			fis = new FileInputStream(org);
 			fos = new FileOutputStream(dest);
-			while((readData = fis.read()) != -1) {
-				fos.write(readData);
+			byte[] buff = new byte[1024*8];
+			while((readSize = fis.read(buff)) != -1) {
+				fos.write(buff, 0, readSize);
 			}
 			fis.close();
 			fos.close();
