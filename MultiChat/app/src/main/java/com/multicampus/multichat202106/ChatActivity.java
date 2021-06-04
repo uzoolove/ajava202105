@@ -1,10 +1,12 @@
 package com.multicampus.multichat202106;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,6 +42,13 @@ public class ChatActivity extends AppCompatActivity {
         final String SERVER = intent.getStringExtra("server");
         final String NICKNAME = intent.getStringExtra("nickname");
 
+        handler = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                msgOut.append(msg.getData().getString("recvData") + "\n");
+            }
+        };
+
         new Thread(){
             public void run(){
                 connect(SERVER, NICKNAME);
@@ -70,7 +79,11 @@ public class ChatActivity extends AppCompatActivity {
 
     // 서버에 메세지 전송
     private void sendMsg(String msg){
-        out.println(msg);
+        new Thread(){
+            public void run(){
+                out.println(msg);
+            }
+        }.start();
     }
 
     private void connect(String server, String nickname){
@@ -92,7 +105,11 @@ public class ChatActivity extends AppCompatActivity {
             // 서버로부터 받은 데이터 출력
             String recvData = "";
             while((recvData = in.readLine()) != null) {
-                msgOut.append(recvData + "\n");
+                Bundle bundle = new Bundle();
+                bundle.putString("recvData", recvData);
+                Message message = handler.obtainMessage();
+                message.setData(bundle);
+                handler.sendMessage(message);
             }
 
         }catch(Exception e){
