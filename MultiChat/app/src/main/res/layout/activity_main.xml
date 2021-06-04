@@ -26,6 +26,7 @@
                 android:layout_weight="1"
                 android:text="@string/server" />
             <EditText
+                android:id="@+id/server"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -38,6 +39,7 @@
                 android:layout_weight="1"
                 android:text="@string/nickname" />
             <EditText
+                android:id="@+id/nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -45,6 +47,7 @@
         </TableRow>
     </TableLayout>
     <Button
+        android:id="@+id/enterBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter" />
