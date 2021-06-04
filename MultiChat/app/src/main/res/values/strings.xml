@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	
+
     <string name="app_name">MultiChat</string>
     <string name="send">send</string>
     <string name="action_settings">settings</string>
     <string name="logo_desc">logo</string>
     <string name="server">server</string>
     <string name="nickname">nickname</string>
-    <string name="enter">enter</string>    
+    <string name="enter">enter</string>
     <string name="default_server">chat.awsins.shop:1234</string>
     <!-- <string name="default_server">10.7.4.200:1234</string> -->
     <string name="default_nickname">kim</string>
